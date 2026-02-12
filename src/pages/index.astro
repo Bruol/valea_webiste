@@ -10,7 +10,7 @@ import zirkusQuartierLogo from '../assets/zirkus quartier logo.png';
 import kukoLogo from '../assets/KuKo Logo.jpg';
 ---
 
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,100 +23,108 @@ import kukoLogo from '../assets/KuKo Logo.jpg';
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
-	<body>
+	<body class="bg-zinc-950 font-[Manrope] leading-relaxed text-zinc-100 antialiased">
 		<!-- Hero Section -->
-		<section class="hero">
-			<div class="hero-image">
-				<Image src={heroImage} alt="ON THE MOON Performance" widths={[640, 1024, 1920]} sizes="100vw" quality={80} loading="eager" />
+		<section class="relative flex min-h-screen items-start overflow-hidden">
+			<div class="absolute inset-0 z-0 after:absolute after:inset-0 after:bg-gradient-to-b after:from-black/30 after:via-black/10 after:to-black/60 after:content-['']">
+				<Image
+					src={heroImage}
+					alt="ON THE MOON Performance"
+					widths={[640, 1024, 1920]}
+					sizes="100vw"
+					quality={80}
+					loading="eager"
+					class="h-full w-full object-cover object-center"
+				/>
 			</div>
-			<div class="hero-content">
-				<p class="company-name">Cie. Youkali</p>
-				<h1 class="hero-title">ON THE MOON</h1>
+			<div class="relative z-10 mt-8 px-6 py-12 md:px-10">
+				<p class="-mt-6 mb-10 pl-1 text-[2rem] font-semibold uppercase tracking-[0.15em] opacity-90">Cie. Youkali</p>
+				<h1 class="mb-4 text-[clamp(6rem,26vw,9rem)] font-bold leading-none tracking-[0.03em] [text-shadow:2px_4px_20px_rgba(0,0,0,0.5)]">ON THE MOON</h1>
 			</div>
-			<p class="photo-credit">© David Schelker</p>
-			<a href="#about" class="scroll-indicator" aria-label="Scroll down">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+			<p class="absolute bottom-2.5 right-2.5 z-20 m-0 max-w-[calc(100%-4rem)] text-xs opacity-60 md:max-w-none">© David Schelker</p>
+			<a href="#about" class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/70 transition hover:text-white hover:no-underline" aria-label="Scroll down">
+				<svg class="animate-bounce" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
 				</svg>
 			</a>
 		</section>
 
 		<!-- About Section -->
-		<section id="about" class="section about">
-			<div class="container">
-				<p class="lead">
+		<section id="about" class="bg-zinc-950 py-16 md:py-24">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<p class="mb-8 text-[1.15rem] font-normal leading-[1.8] sm:text-[1.35rem]">
 					Umwoben von Geschichten, gehört er bisher nur den Träumenden und sich selbst. Doch was, wenn wieder Menschen auf dem Mond landen? Wenn der Mond erobert und dauerhaft bewohnt wird?
 				</p>
-				<p>
+				<p class="mb-6">
 					ON THE MOON beschäftigt sich mit Besitz, anhand des Umgangs von Menschen mit dem Mond. Drei Performer:innen und ein Musiker begeben sich auf eine bilderreiche Reise ins All und erforschen zwischen Fakten und Fantasie ungewöhnliche Zukunftsutopien. Mit Luftakrobatik, Physical Theatre und Live-Sound geht das Projekt innovative Wege im zeitgenössischen Zirkus: Es verbindet Wissenschaft mit Zirkus in weitgehendem Sinne und lädt das Publikum zu einer spielerischen Reise ein.
 				</p>
-				<p>
+				<p class="mb-6">
 					Im Frühjahr 2025 wurde das Projekt von Migros Kulturprozent für eine Ideationsphase unterstützt. Ab Juni 2026 startet die Stückkreation, in Koproduktion mit dem Zirkusquartier Zürich, begleitet von Wissenschaftler:innen der ETH Zürich und der Uni Bern.
 				</p>
-				<div class="performance-info">
-					<span>Ab 7 Jahren</span>
-					<span>Dauer: ca. 60 Minuten</span>
-					<span>Spielbar in Theatern und Turnhallen</span>
+				<div class="mt-12 flex flex-col gap-4 pt-8 uppercase opacity-80 md:flex-row md:flex-wrap md:gap-6">
+					<span class="inline-flex items-center before:mr-3 before:inline-block before:size-1.5 before:rounded-full before:bg-violet-500 before:content-['']">Ab 7 Jahren</span>
+					<span class="inline-flex items-center before:mr-3 before:inline-block before:size-1.5 before:rounded-full before:bg-violet-500 before:content-['']">Dauer: ca. 60 Minuten</span>
+					<span class="inline-flex items-center before:mr-3 before:inline-block before:size-1.5 before:rounded-full before:bg-violet-500 before:content-['']">Spielbar in Theatern und Turnhallen</span>
 				</div>
 			</div>
 		</section>
 
 		<!-- Gallery Section -->
-		<section class="section gallery">
+		<section class="bg-zinc-950 py-10 md:py-14">
 			<Gallery client:load />
 		</section>
 
 		<!-- Team Section -->
-		<section id="team" class="section team">
-			<div class="container">
-				<h2>Mitwirkende</h2>
-				<div class="credits">
+		<section id="team" class="bg-zinc-900 py-16 md:py-[4.5rem]">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<h2 class="mb-8 text-[clamp(2.5rem,6vw,4rem)] font-extrabold leading-tight">Mitwirkende</h2>
+				<div class="grid gap-6 md:gap-7">
 
-						<div class="credit-stack">
-							<div class="credit-item">
-								<span class="role">Künstlerische Leitung, Produktionsleitung</span>
-								<span class="name"><a href="https://www.valeavolcker.com/aktuelles" target="_blank" rel="noopener">Valea Völcker</a></span>
+						<div class="grid gap-3">
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Künstlerische Leitung, Produktionsleitung</span>
+								<span class="leading-[1.42]"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://www.valeavolcker.com/aktuelles" target="_blank" rel="noopener">Valea Völcker</a></span>
 							</div>
-							<div class="credit-item ">
-								<span class="role">Idee & Performance</span>
-								<span class="name">
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Idee & Performance</span>
+								<span class="leading-[1.42]">
 									Valea Völcker,
-									<a href="https://simonthoeni.ch/" target="_blank" rel="noopener">Simon Thöni</a>,
-									<a href="https://www.dianegemsch.ch/" target="_blank" rel="noopener">Diane Gemsch</a>
+									<a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://simonthoeni.ch/" target="_blank" rel="noopener">Simon Thöni</a>,
+									<a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://www.dianegemsch.ch/" target="_blank" rel="noopener">Diane Gemsch</a>
 								</span>
 							</div>
-							<div class="credit-item">
-								<span class="role">Sound & Performance</span>
-								<span class="name"><a href="https://www.marquismcgee.com/" target="_blank" rel="noopener">Marquis' McGee</a></span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Sound & Performance</span>
+								<span class="leading-[1.42]"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://www.marquismcgee.com/" target="_blank" rel="noopener">Marquis' McGee</a></span>
 							</div>
-							<div class="credit-item">
-								<span class="role">End-Regie</span>
-								<span class="name">Newa Grawit (<a href="https://cirquedeloin.ch/companie/" target="_blank" rel="noopener">Cirque de Loin</a>)</span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">End-Regie</span>
+								<span class="leading-[1.42]">Newa Grawit (<a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://cirquedeloin.ch/companie/" target="_blank" rel="noopener">Cirque de Loin</a>)</span>
 							</div>
 
 
 
-							<div class="credit-item ">
-								<span class=" role">Wissenschaftliche Begleitung</span>
-								<span class="name">Prof. Audrey Vorburger (Uni Bern), Dr. Anna Mittelholz (ETH Zürich), Prof. Dr. Henner Busemann (ETH Zürich)</span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Wissenschaftliche Begleitung</span>
+								<span class="leading-[1.42]">Prof. Audrey Vorburger (Uni Bern), Dr. Anna Mittelholz (ETH Zürich), Prof. Dr. Henner Busemann (ETH Zürich)</span>
 							</div>
 				
 
-							<div class="credit-item ">
-								<span class="role">Bühnenbild</span>
-								<span class="name"><a href="https://annatinahuwiler.ch/z-BERG" target="_blank" rel="noopener">Annatina Huwiler</a></span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Bühnenbild</span>
+								<span class="leading-[1.42]"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://annatinahuwiler.ch/z-BERG" target="_blank" rel="noopener">Annatina Huwiler</a></span>
 							</div>
-							<div class="credit-item ">
-								<span class="role">Produktions-Mentoring</span>
-								<span class="name"><a href="https://bollwerk-andreaboll.com/" target="_blank" rel="noopener">Andrea Boll</a></span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Produktions-Mentoring</span>
+								<span class="leading-[1.42]"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://bollwerk-andreaboll.com/" target="_blank" rel="noopener">Andrea Boll</a></span>
 							</div>
-							<div class="credit-item ">
-								<span class="role">Luftakrobatik Coaching</span>
-								<span class="name"><a href="https://www.rebekkagather.com/" target="_blank" rel="noopener">Rebekka Gather</a></span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Luftakrobatik Coaching</span>
+								<span class="leading-[1.42]"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="https://www.rebekkagather.com/" target="_blank" rel="noopener">Rebekka Gather</a></span>
 							</div>
-							<div class="credit-item ">
-								<span class="role">Rigging Beratung</span>
-								<span class="name">Duncan Cown</span>
+							<div class="flex flex-col gap-1 py-1">
+								<span class="text-sm uppercase tracking-[0.015em] opacity-40">Rigging Beratung</span>
+								<span class="leading-[1.42]">Duncan Cown</span>
 							</div>
 
 
@@ -130,35 +138,35 @@ import kukoLogo from '../assets/KuKo Logo.jpg';
 		</section>
 
 		<!-- Dates Section -->
-		<section id="dates" class="section dates">
-			<div class="container">
-				<h2>Daten 2026</h2>
-				<div class="dates-list">
-					<div class="date-item">
-						<span class="date">16.-19. März</span>
-						<span class="event">Workshops mit Schulklassen, Kulturmärz Uster</span>
+		<section id="dates" class="bg-zinc-950 py-16 md:py-24">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<h2 class="mb-8 text-[clamp(2.5rem,6vw,4rem)] font-extrabold leading-tight">Daten 2026</h2>
+				<div class="flex flex-col gap-6">
+					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-violet-500 hover:bg-violet-500/10">
+						<span class="text-[1.75rem] font-bold">16.-19. März</span>
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Workshops mit Schulklassen, Kulturmärz Uster</span>
 					</div>
-					<div class="date-item">
-						<span class="date">27. September</span>
-						<span class="event">Podiumsdiskussion, Swiss Space Museum Regensdorf</span>
+					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-violet-500 hover:bg-violet-500/10">
+						<span class="text-[1.75rem] font-bold">27. September</span>
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Podiumsdiskussion, Swiss Space Museum Regensdorf</span>
 					</div>
-					<div class="date-item">
-						<span class="date">23. Oktober</span>
-						<span class="event">PREMIERE, Zirkusquartier Zürich</span>
+					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-violet-500 hover:bg-violet-500/10">
+						<span class="text-[1.75rem] font-bold">23. Oktober</span>
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">PREMIERE, Zirkusquartier Zürich</span>
 					</div>
-					<div class="date-item">
-						<span class="date">24./25. Oktober</span>
-						<span class="event">Zirkusquartier Zürich</span>
+					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-violet-500 hover:bg-violet-500/10">
+						<span class="text-[1.75rem] font-bold">24./25. Oktober</span>
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Zirkusquartier Zürich</span>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Video Section -->
-		<section id="video" class="section video">
-			<div class="container">
-				<h2>Teaser</h2>
-				<div class="video-wrapper">
+		<section id="video" class="bg-zinc-900 py-16 md:py-24">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<h2 class="mb-8 text-[clamp(2.5rem,6vw,4rem)] font-extrabold leading-tight">Teaser</h2>
+				<div class="relative aspect-video overflow-hidden rounded">
 					<iframe 
 						src="https://www.youtube.com/embed/4iZVH2jsz0E" 
 						title="ON THE MOON – Ideationsphase"
@@ -166,47 +174,48 @@ import kukoLogo from '../assets/KuKo Logo.jpg';
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 						allowfullscreen
 						loading="lazy"
+						class="absolute inset-0 h-full w-full"
 					></iframe>
 				</div>
-				<p class="video-credit">© Michael Gärtner, Wetzikon TV</p>
+				<p class="mb-0 mt-4 text-sm opacity-60">© Michael Gärtner, Wetzikon TV</p>
 			</div>
 		</section>
 
 		<!-- Contact Section -->
-		<section id="contact" class="section contact">
-			<div class="container">
-				<h2>Kontakt</h2>
-				<div class="contact-grid">
-					<div class="contact-item">
-						<h3>Produktionsleitung</h3>
-						<p>Valea Völcker</p>
-						<p><a href="mailto:info@valeavolcker.com">info@valeavolcker.com</a></p>
+		<section id="contact" class="bg-zinc-950 py-16 md:py-24">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<h2 class="mb-8 text-[clamp(2.5rem,6vw,4rem)] font-extrabold leading-tight">Kontakt</h2>
+				<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+					<div>
+						<h3 class="mb-4 text-base uppercase tracking-[0.015em] opacity-40">Produktionsleitung</h3>
+						<p class="mb-2">Valea Völcker</p>
+						<p class="mb-2"><a class="border-b border-white/30 text-zinc-200 transition hover:border-white hover:text-white hover:no-underline" href="mailto:info@valeavolcker.com">info@valeavolcker.com</a></p>
 					</div>
-					<div class="contact-item">
-						<h3>Verein Youkali – Cie. Youkali</h3>
-						<p>Morgenstrasse 30</p>
-						<p>8620 Wetzikon</p>
+					<div>
+						<h3 class="mb-4 text-base uppercase tracking-[0.015em] opacity-40">Verein Youkali – Cie. Youkali</h3>
+						<p class="mb-2">Morgenstrasse 30</p>
+						<p class="mb-2">8620 Wetzikon</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Partners Section -->
-		<footer class="section partners">
-			<div class="container">
-				<div class="partners-group">
-					<p class="partners-title">In Zusammenarbeit mit</p>
-					<div class="partners-logos">
-						<a href="https://ethz.ch/" target="_blank" rel="noopener"><Image src={ethLogo} alt="ETH Zürich" class="partner-logo" /></a>
-						<a href="https://www.unibe.ch/" target="_blank" rel="noopener"><Image src={uniBernLogo} alt="Universität Bern" class="partner-logo" /></a>
-						<a href="https://swissspacemuseum.ch/" target="_blank" rel="noopener"><Image src={swissSpaceMuseumLogo} alt="Swiss Space Museum" class="partner-logo partner-logo-dark" /></a>
+		<footer class="bg-zinc-900 py-16 text-center">
+			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
+				<div class="mb-12">
+					<p class="mb-8 text-sm uppercase tracking-[0.15em] opacity-60">In Zusammenarbeit mit</p>
+					<div class="flex flex-wrap items-center justify-center gap-10">
+						<a href="https://ethz.ch/" target="_blank" rel="noopener"><Image src={ethLogo} alt="ETH Zürich" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100" /></a>
+						<a href="https://www.unibe.ch/" target="_blank" rel="noopener"><Image src={uniBernLogo} alt="Universität Bern" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100" /></a>
+						<a href="https://swissspacemuseum.ch/" target="_blank" rel="noopener"><Image src={swissSpaceMuseumLogo} alt="Swiss Space Museum" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" /></a>
 					</div>
 				</div>
-				<div class="partners-group">
-					<p class="partners-title">Unterstützt von</p>
-					<div class="partners-logos">
-						<a href="https://zirkusquartier.ch/" target="_blank" rel="noopener"><Image src={zirkusQuartierLogo} alt="Zirkusquartier Zürich" class="partner-logo partner-logo-dark" /></a>
-						<Image src={kukoLogo} alt="Kultur Kommission Wetzikon" class="partner-logo partner-logo-dark" />
+				<div>
+					<p class="mb-8 text-sm uppercase tracking-[0.15em] opacity-60">Unterstützt von</p>
+					<div class="flex flex-wrap items-center justify-center gap-10">
+						<a href="https://zirkusquartier.ch/" target="_blank" rel="noopener"><Image src={zirkusQuartierLogo} alt="Zirkusquartier Zürich" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" /></a>
+						<Image src={kukoLogo} alt="Kultur Kommission Wetzikon" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" />
 					</div>
 				</div>
 			</div>
