@@ -1,5 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import '../styles/global.css';
+import Gallery from '../components/Gallery';
+import heroImage from '../assets/On_The_Moon_ZW_111kopie.jpeg';
+import ethLogo from '../assets/eth_logo_kurz_neg.png';
+import uniBernLogo from '../assets/uni bern logo.png';
+import swissSpaceMuseumLogo from '../assets/swiss space museum logo.png';
+import zirkusQuartierLogo from '../assets/zirkus quartier logo.png';
+import kukoLogo from '../assets/KuKo Logo.jpg';
 ---
 
 <html lang="de">
@@ -19,13 +27,13 @@ import '../styles/global.css';
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="hero-image">
-				<img src="/imgs/On_The_Moon_ZW_111kopie.jpeg" alt="ON THE MOON Performance" />
+				<Image src={heroImage} alt="ON THE MOON Performance" widths={[640, 1024, 1920]} sizes="100vw" quality={80} loading="eager" />
 			</div>
 			<div class="hero-content">
 				<p class="company-name">Cie. Youkali</p>
 				<h1 class="hero-title">ON THE MOON</h1>
 			</div>
-			<p class="photo-credit">© David Schelker, Recherche-Residenz Zentralwäscherei Zürich</p>
+			<p class="photo-credit">© David Schelker</p>
 			<a href="#about" class="scroll-indicator" aria-label="Scroll down">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
@@ -55,12 +63,7 @@ import '../styles/global.css';
 
 		<!-- Gallery Section -->
 		<section class="section gallery">
-			<div class="gallery-grid">
-				<img src="/imgs/On_The_Moon_ZQ_075.jpeg" alt="ON THE MOON Performance" loading="lazy" />
-				<img src="/imgs/On_The_Moon_ZW_087.jpeg" alt="ON THE MOON Performance" loading="lazy" />
-				<img src="/imgs/On_The_Moon_ZQ_086.jpeg" alt="ON THE MOON Performance" loading="lazy" />
-				<img src="/imgs/On_The_Moon_ZW_141.jpeg" alt="ON THE MOON Performance" loading="lazy" />
-			</div>
+			<Gallery client:load />
 		</section>
 
 		<!-- Team Section -->
@@ -68,47 +71,61 @@ import '../styles/global.css';
 			<div class="container">
 				<h2>Mitwirkende</h2>
 				<div class="credits">
-					<div class="credit-item">
-						<span class="role">Künstlerische Leitung, Produktionsleitung</span>
-						<span class="name"><a href="https://www.valeavolcker.com/aktuelles" target="_blank" rel="noopener">Valea Völcker</a></span>
+
+						<div class="credit-stack">
+							<div class="credit-item">
+								<span class="role">Künstlerische Leitung, Produktionsleitung</span>
+								<span class="name"><a href="https://www.valeavolcker.com/aktuelles" target="_blank" rel="noopener">Valea Völcker</a></span>
+							</div>
+							<div class="credit-item ">
+								<span class="role">Idee & Performance</span>
+								<span class="name">
+									Valea Völcker,
+									<a href="https://simonthoeni.ch/" target="_blank" rel="noopener">Simon Thöni</a>,
+									<a href="https://www.dianegemsch.ch/" target="_blank" rel="noopener">Diane Gemsch</a>
+								</span>
+							</div>
+							<div class="credit-item">
+								<span class="role">Sound & Performance</span>
+								<span class="name"><a href="https://www.marquismcgee.com/" target="_blank" rel="noopener">Marquis' McGee</a></span>
+							</div>
+							<div class="credit-item">
+								<span class="role">End-Regie</span>
+								<span class="name">Newa Grawit (<a href="https://cirquedeloin.ch/companie/" target="_blank" rel="noopener">Cirque de Loin</a>)</span>
+							</div>
+
+
+
+							<div class="credit-item ">
+								<span class=" role">Wissenschaftliche Begleitung</span>
+								<span class="name">Prof. Audrey Vorburger (Uni Bern), Dr. Anna Mittelholz (ETH Zürich), Prof. Dr. Henner Busemann (ETH Zürich)</span>
+							</div>
+				
+
+							<div class="credit-item ">
+								<span class="role">Bühnenbild</span>
+								<span class="name"><a href="https://annatinahuwiler.ch/z-BERG" target="_blank" rel="noopener">Annatina Huwiler</a></span>
+							</div>
+							<div class="credit-item ">
+								<span class="role">Produktions-Mentoring</span>
+								<span class="name"><a href="https://bollwerk-andreaboll.com/" target="_blank" rel="noopener">Andrea Boll</a></span>
+							</div>
+							<div class="credit-item ">
+								<span class="role">Luftakrobatik Coaching</span>
+								<span class="name"><a href="https://www.rebekkagather.com/" target="_blank" rel="noopener">Rebekka Gather</a></span>
+							</div>
+							<div class="credit-item ">
+								<span class="role">Rigging Beratung</span>
+								<span class="name">Duncan Cown</span>
+							</div>
+
+
+
+
+							
+						</div>
 					</div>
-					<div class="credit-item">
-						<span class="role">Idee & Performance</span>
-						<span class="name">
-							Valea Völcker, 
-							<a href="https://simonthoeni.ch/" target="_blank" rel="noopener">Simon Thöni</a>, 
-							<a href="https://www.dianegemsch.ch/" target="_blank" rel="noopener">Diane Gemsch</a>
-						</span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Sound & Performance</span>
-						<span class="name"><a href="https://www.marquismcgee.com/" target="_blank" rel="noopener">Marquis' McGee</a></span>
-					</div>
-					<div class="credit-item">
-						<span class="role">End-Regie</span>
-						<span class="name">Newa Grawit (<a href="https://cirquedeloin.ch/companie/" target="_blank" rel="noopener">Cirque de Loin</a>)</span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Bühnenbild</span>
-						<span class="name"><a href="https://annatinahuwiler.ch/z-BERG" target="_blank" rel="noopener">Annatina Huwiler</a></span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Wissenschaftliche Begleitung</span>
-						<span class="name">Prof. Audrey Vorburger (Uni Bern), Dr. Anna Mittelholz (ETH Zürich), Prof. Dr. Henner Busemann (ETH Zürich)</span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Produktions-Mentoring</span>
-						<span class="name"><a href="https://bollwerk-andreaboll.com/" target="_blank" rel="noopener">Andrea Boll</a></span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Luftakrobatik Coaching</span>
-						<span class="name"><a href="https://www.rebekkagather.com/" target="_blank" rel="noopener">Rebekka Gather</a></span>
-					</div>
-					<div class="credit-item">
-						<span class="role">Rigging Beratung</span>
-						<span class="name">Duncan Cown</span>
-					</div>
-				</div>
+
 			</div>
 		</section>
 
@@ -125,7 +142,7 @@ import '../styles/global.css';
 						<span class="date">27. September</span>
 						<span class="event">Podiumsdiskussion, Swiss Space Museum Regensdorf</span>
 					</div>
-					<div class="date-item highlight">
+					<div class="date-item">
 						<span class="date">23. Oktober</span>
 						<span class="event">PREMIERE, Zirkusquartier Zürich</span>
 					</div>
@@ -177,9 +194,20 @@ import '../styles/global.css';
 		<!-- Partners Section -->
 		<footer class="section partners">
 			<div class="container">
-				<p class="partners-title">In Zusammenarbeit mit</p>
-				<div class="partners-logos">
-					<img src="/imgs/eth_logo_kurz_neg.png" alt="ETH Zürich" class="partner-logo" />
+				<div class="partners-group">
+					<p class="partners-title">In Zusammenarbeit mit</p>
+					<div class="partners-logos">
+						<a href="https://ethz.ch/" target="_blank" rel="noopener"><Image src={ethLogo} alt="ETH Zürich" class="partner-logo" /></a>
+						<a href="https://www.unibe.ch/" target="_blank" rel="noopener"><Image src={uniBernLogo} alt="Universität Bern" class="partner-logo" /></a>
+						<a href="https://swissspacemuseum.ch/" target="_blank" rel="noopener"><Image src={swissSpaceMuseumLogo} alt="Swiss Space Museum" class="partner-logo partner-logo-dark" /></a>
+					</div>
+				</div>
+				<div class="partners-group">
+					<p class="partners-title">Unterstützt von</p>
+					<div class="partners-logos">
+						<a href="https://zirkusquartier.ch/" target="_blank" rel="noopener"><Image src={zirkusQuartierLogo} alt="Zirkusquartier Zürich" class="partner-logo partner-logo-dark" /></a>
+						<Image src={kukoLogo} alt="Kultur Kommission Wetzikon" class="partner-logo partner-logo-dark" />
+					</div>
 				</div>
 			</div>
 		</footer>
