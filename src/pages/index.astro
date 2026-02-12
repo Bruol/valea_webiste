@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import '../styles/global.css';
-import Gallery from '../components/Gallery';
+import Gallery from '../components/Gallery.astro';
 import heroImage from '../assets/On_The_Moon_ZW_111kopie.jpeg';
 import ethLogo from '../assets/eth_logo_kurz_neg.png';
 import uniBernLogo from '../assets/uni bern logo.png';
@@ -71,7 +71,7 @@ import kukoLogo from '../assets/KuKo Logo.jpg';
 
 		<!-- Gallery Section -->
 		<section class="bg-zinc-950 py-10 md:py-14">
-			<Gallery client:load />
+			<Gallery />
 		</section>
 
 		<!-- Team Section -->

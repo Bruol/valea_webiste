@@ -1,0 +1,154 @@
+---
+const images = [
+  { src: "/imgs/On_The_Moon_ZQ_015.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZQ_075.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZQ_086.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZW_062.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZW_077.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZW_087.jpeg", alt: "ON THE MOON Performance" },
+  { src: "/imgs/On_The_Moon_ZW_141.jpeg", alt: "ON THE MOON Performance" },
+];
+---
+
+<div class="relative w-full" data-gallery-root>
+  <button
+    class="absolute left-1.5 top-1/2 z-30 inline-flex -translate-y-1/2 items-center justify-center p-2 text-white/70 transition hover:-translate-x-0.5 hover:-translate-y-1/2 hover:text-white/95 active:-translate-y-1/2 active:scale-95 md:left-[clamp(0.6rem,2vw,2rem)] md:p-3"
+    type="button"
+    aria-label="Vorheriges Bild"
+    data-gallery-prev
+  >
+    <svg
+      width="20"
+      height="36"
+      viewBox="0 0 20 36"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M15 3L5 18L15 33" />
+    </svg>
+  </button>
+
+  <div
+    class="overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+    aria-label="Horizontale Bildergalerie"
+    data-gallery-viewport
+  >
+    <div class="flex items-center gap-[clamp(0.9rem,2vw,1.6rem)] px-3 md:px-[clamp(1rem,3vw,3rem)]">
+      {images.map((img) => (
+        <figure class="m-0 shrink-0" data-gallery-slide>
+          <img
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            draggable="false"
+            class="block h-[clamp(220px,56vw,440px)] w-auto max-w-[clamp(290px,82vw,680px)] select-none rounded-[0.35rem] object-contain [filter:saturate(0.55)] [transform:scale(0.9)] [transform-origin:center] [will-change:transform,filter] md:h-[clamp(230px,45vw,620px)] md:max-w-[clamp(320px,70vw,980px)]"
+          />
+        </figure>
+      ))}
+    </div>
+  </div>
+
+  <button
+    class="absolute right-1.5 top-1/2 z-30 inline-flex -translate-y-1/2 items-center justify-center p-2 text-white/70 transition hover:translate-x-0.5 hover:-translate-y-1/2 hover:text-white/95 active:-translate-y-1/2 active:scale-95 md:right-[clamp(0.6rem,2vw,2rem)] md:p-3"
+    type="button"
+    aria-label="Nächstes Bild"
+    data-gallery-next
+  >
+    <svg
+      width="20"
+      height="36"
+      viewBox="0 0 20 36"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M5 3L15 18L5 33" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  const root = document.querySelector("[data-gallery-root]");
+  if (!root) {
+    throw new Error("Gallery root not found");
+  }
+
+  const viewport = root.querySelector("[data-gallery-viewport]");
+  const prevBtn = root.querySelector("[data-gallery-prev]");
+  const nextBtn = root.querySelector("[data-gallery-next]");
+  const slideSelector = "[data-gallery-slide]";
+
+  if (!(viewport instanceof HTMLDivElement)) {
+    throw new Error("Gallery viewport not found");
+  }
+  if (!(prevBtn instanceof HTMLButtonElement) || !(nextBtn instanceof HTMLButtonElement)) {
+    throw new Error("Gallery navigation buttons not found");
+  }
+
+  let rafId = 0;
+
+  const updateProximity = () => {
+    const vpRect = viewport.getBoundingClientRect();
+    const vpCenter = vpRect.left + vpRect.width / 2;
+    const maxDist = vpRect.width * 0.75;
+
+    viewport.querySelectorAll(slideSelector).forEach((fig) => {
+      const figRect = fig.getBoundingClientRect();
+      const figCenter = figRect.left + figRect.width / 2;
+      const dist = Math.abs(vpCenter - figCenter);
+      const t = Math.max(0, 1 - dist / maxDist);
+      const scale = 0.9 + t * 0.1;
+      const sat = 0.55 + t * 0.45;
+
+      const img = fig.querySelector("img");
+      if (img) {
+        img.style.transform = `scale(${scale})`;
+        img.style.filter = `saturate(${sat})`;
+      }
+    });
+  };
+
+  const centerFirst = () => {
+    const firstFig = viewport.querySelector(slideSelector);
+    if (!firstFig) return;
+
+    const figRect = firstFig.getBoundingClientRect();
+    const vpRect = viewport.getBoundingClientRect();
+    viewport.scrollLeft +=
+      figRect.left + figRect.width / 2 - (vpRect.left + vpRect.width / 2);
+    updateProximity();
+  };
+
+  const firstImg = viewport.querySelector("img");
+  if (firstImg && !firstImg.complete) {
+    firstImg.addEventListener("load", () => requestAnimationFrame(centerFirst), {
+      once: true,
+    });
+  } else {
+    requestAnimationFrame(centerFirst);
+  }
+
+  viewport.addEventListener(
+    "scroll",
+    () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateProximity);
+    },
+    { passive: true },
+  );
+
+  prevBtn.addEventListener("click", () => {
+    viewport.scrollBy({ left: -viewport.clientWidth * 0.5, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    viewport.scrollBy({ left: viewport.clientWidth * 0.5, behavior: "smooth" });
+  });
+</script>
