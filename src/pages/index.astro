@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets';
 import '../styles/global.css';
 import Gallery from '../components/Gallery.astro';
-import heroImage from '../assets/On_The_Moon_ZW_111kopie.jpeg';
-import ethLogo from '../assets/eth_logo_kurz_neg.png';
-import uniBernLogo from '../assets/uni bern logo.png';
-import swissSpaceMuseumLogo from '../assets/swiss space museum logo.png';
-import zirkusQuartierLogo from '../assets/zirkus quartier logo.png';
-import kukoLogo from '../assets/KuKo Logo.jpg';
+import heroImageWebp from '../assets/On_The_Moon_ZW_111kopie.webp';
+import ethLogo from '../assets/eth_logo_kurz_neg.webp';
+import uniBernLogo from '../assets/uni bern logo.webp';
+import swissSpaceMuseumLogo from '../assets/swiss space museum logo.webp';
+import zirkusQuartierLogo from '../assets/zirkus quartier logo.webp';
+import kukoLogo from '../assets/KuKo Logo.webp';
 ---
 
 <html lang="de" class="scroll-smooth">
@@ -26,7 +26,7 @@ import kukoLogo from '../assets/KuKo Logo.jpg';
 		<section class="relative flex min-h-screen items-start overflow-hidden">
 			<div class="absolute inset-0 z-0 after:absolute after:inset-0 after:bg-gradient-to-b after:from-black/30 after:via-black/10 after:to-black/60 after:content-['']">
 				<Image
-					src={heroImage}
+					src={heroImageWebp}
 					alt="ON THE MOON Performance"
 					widths={[640, 1024, 1920]}
 					sizes="100vw"
