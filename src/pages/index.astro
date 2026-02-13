@@ -140,22 +140,22 @@ import kukoLogo from '../assets/KuKo Logo.webp';
 			<div class="mx-auto w-full max-w-[900px] px-6 md:px-8">
 				<h2 class="mb-8 text-[clamp(2.5rem,6vw,4rem)] font-extrabold leading-tight">Daten 2026</h2>
 				<div class="flex flex-col gap-6">
-					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
-						<span class="text-[1.75rem] font-bold">16.-19. März</span>
-						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Workshops mit Schulklassen, Kulturmärz Uster</span>
-					</div>
-					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
-						<span class="text-[1.75rem] font-bold">27. September</span>
-						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Podiumsdiskussion, Swiss Space Museum Regensdorf</span>
-					</div>
-					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
-						<span class="text-[1.75rem] font-bold">23. Oktober</span>
-						<span class="text-sm uppercase tracking-[0.015em] opacity-40">PREMIERE, Zirkusquartier Zürich</span>
-					</div>
-					<div class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
-						<span class="text-[1.75rem] font-bold">24./25. Oktober</span>
-						<span class="text-sm uppercase tracking-[0.015em] opacity-40">Zirkusquartier Zürich</span>
-					</div>
+					<a href="https://zeughaus-areal.ch/kulturmaerz-2026/" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 no-underline transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">16.-19. März</span>
+						<span class="text-[1.75rem] font-bold">Workshops mit Schulklassen, Kulturmärz Uster</span>
+					</a>
+					<a href="https://swissspacemuseum.ch/events/" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 no-underline transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">27. September</span>
+						<span class="text-[1.75rem] font-bold">Podiumsdiskussion, Swiss Space Museum Regensdorf</span>
+					</a>
+					<a href="https://zirkusquartier.ch/programm/" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 no-underline transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">23. Oktober</span>
+						<span class="text-[1.75rem] font-bold">PREMIERE, Zirkusquartier Zürich</span>
+					</a>
+					<a href="https://zirkusquartier.ch/programm/" target="_blank" rel="noopener noreferrer" class="flex flex-col gap-1 border-l-[3px] border-transparent bg-white/[0.03] p-6 no-underline transition hover:border-[#9b59b6] hover:bg-[#9b59b6]/10">
+						<span class="text-sm uppercase tracking-[0.015em] opacity-40">24./25. Oktober</span>
+						<span class="text-[1.75rem] font-bold">Zirkusquartier Zürich</span>
+					</a>
 				</div>
 			</div>
 		</section>
@@ -208,12 +208,12 @@ import kukoLogo from '../assets/KuKo Logo.webp';
 						<a href="https://ethz.ch/" target="_blank" rel="noopener"><Image src={ethLogo} alt="ETH Zürich" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100" /></a>
 						<a href="https://www.unibe.ch/" target="_blank" rel="noopener"><Image src={uniBernLogo} alt="Universität Bern" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100" /></a>
 						<a href="https://swissspacemuseum.ch/" target="_blank" rel="noopener"><Image src={swissSpaceMuseumLogo} alt="Swiss Space Museum" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" /></a>
+						<a href="https://zirkusquartier.ch/" target="_blank" rel="noopener"><Image src={zirkusQuartierLogo} alt="Zirkusquartier Zürich" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" /></a>
 					</div>
 				</div>
 				<div>
 					<p class="mb-8 text-sm uppercase tracking-[0.15em] opacity-60">Unterstützt von</p>
 					<div class="flex flex-wrap items-center justify-center gap-10">
-						<a href="https://zirkusquartier.ch/" target="_blank" rel="noopener"><Image src={zirkusQuartierLogo} alt="Zirkusquartier Zürich" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" /></a>
 						<Image src={kukoLogo} alt="Kultur Kommission Wetzikon" class="h-20 w-auto opacity-80 transition duration-300 hover:scale-[1.08] hover:opacity-100 [filter:invert(1)_grayscale(1)] [mix-blend-mode:screen]" />
 					</div>
 				</div>
